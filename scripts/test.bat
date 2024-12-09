@@ -1,6 +1,6 @@
 @echo off
 
-cd ../utils
+cd ../src/utils
 go test -v
-cd ../scripts
+cd ../../scripts
 

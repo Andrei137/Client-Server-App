@@ -1,0 +1,6 @@
+{
+    "API_PORT": 8080,
+    "GRPC_PORT": 50051,
+    "MAX_PARAMS": 10,
+    "COLORED_LOGS": true
+}

@@ -1,0 +1,42 @@
+// protoc --go_out=. --go-grpc_out=. services.proto
+
+syntax = "proto3";
+package services;
+option go_package = "./services";
+
+service Services {
+  rpc MixWords(StringSliceReq) returns (StringSliceRes);
+  rpc CountPerfectSquares(StringSliceReq) returns (Int32Res);
+  rpc SumReversed(Int32SliceReq) returns (Int32Res);
+  rpc AverageWithinRange(Int32SliceReq) returns (Int32Res);
+  rpc ConvertBinary(StringSliceReq) returns (Int32SliceRes);
+  rpc CaesarCipher(CaesarCipherReq) returns (StringRes);
+  rpc DecodeText(StringReq) returns (StringRes);
+  rpc CountDigitsPrime(Int32SliceReq) returns (Int32Res);
+  rpc CountEvenVowels(StringSliceReq) returns (Int32Res);
+  rpc GCD(StringSliceReq) returns (Int32Res);
+  rpc SumPermuted(SumPermutedReq) returns (Int32Res);
+  rpc SumDuplicatedFirst(Int32SliceReq) returns (Int32Res);
+  rpc FilterComplexNumbers(Int32SliceReq) returns (DoubleSliceRes);
+  rpc FilterValidPasswords(StringSliceReq) returns (StringSliceRes);
+  rpc GenerateRandomPasswords(StringSliceReq) returns (StringSliceRes);
+}
+
+message StringReq { string value = 1; }
+message Int32SliceReq { repeated int32 numbers = 1; }
+message StringSliceReq { repeated string strings = 1; }
+message SumPermutedReq {
+  repeated int32 numbers = 1;
+  int32 shift = 2;
+}
+message CaesarCipherReq {
+  string text = 1;
+  string direction = 2;
+  int32 shift = 3;
+}
+
+message Int32Res { int32 value = 1; }
+message StringRes { string value = 1; }
+message Int32SliceRes { repeated int32 numbers = 1; }
+message StringSliceRes { repeated string strings = 1; }
+message DoubleSliceRes { repeated double numbers = 1; }
